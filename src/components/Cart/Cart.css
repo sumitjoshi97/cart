@@ -1,0 +1,17 @@
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40rem;
+  height: 100vh;
+  background-color: #2e2e2e; }
+  .cart__toggle-btn {
+    position: absolute;
+    right: 40rem;
+    background-color: #2e2e2e;
+    border: none;
+    padding: 2rem; }
+  .cart__list {
+    position: relative;
+    list-style: none;
+    margin-top: 20rem; }

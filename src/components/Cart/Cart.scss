@@ -1,0 +1,29 @@
+.cart{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 40rem;
+    height: 100vh;
+    background-color: #2e2e2e;
+    &__toggle-btn {
+        position: absolute;
+        right: 40rem;
+        background-color: #2e2e2e;
+        border: none;
+        padding: 2rem;
+    }
+
+    //dropped idea of header
+    // &__heading {
+    //     font-size: 4rem;
+    //     position: relative;
+    //     text-align: center;
+    //     margin-top: 10rem;
+    //     color: #fff;
+    // }
+    &__list {
+        position: relative;
+        list-style: none;
+        margin-top: 20rem;
+    }
+}
