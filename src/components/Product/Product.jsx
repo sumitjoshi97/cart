@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index';
 
 class Product extends Component {
+  // shouldComponentUpdate(pre)
   render() {
     return (
       <div className="product">
@@ -13,7 +14,7 @@ class Product extends Component {
       <p className="product__info__price">{`$${this.props.product.price}  USD`}</p>
       <p className="product__info__para">{this.props.product.style}</p>
     </div>
-
+      
     <button 
       className="product__add" 
       onPointerDown={()=>this.props.onAddProductToCart(this.props.product)}>Add to Cart</button>
