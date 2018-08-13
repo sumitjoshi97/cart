@@ -1,17 +1,45 @@
 .cart {
   position: fixed;
-  right: 0;
+  right: -40rem;
   top: 0;
   width: 40rem;
   height: 100vh;
-  background-color: #2e2e2e; }
+  background-color: #2e2e2e;
+  overflow: hidden;
+  overflow-y: auto;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear; }
+  .cart::-webkit-scrollbar {
+    display: none; }
   .cart__toggle-btn {
-    position: absolute;
-    right: 40rem;
+    position: fixed;
+    right: 0rem;
     background-color: #2e2e2e;
     border: none;
-    padding: 2rem; }
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear; }
+    .cart__toggle-btn:focus, .cart__toggle-btn:active {
+      outline: none; }
+    .cart__toggle-btn:hover {
+      background-color: #eee;
+      color: #2e2e2e; }
   .cart__list {
     position: relative;
     list-style: none;
-    margin-top: 20rem; }
+    margin-top: 10rem;
+    margin-bottom: 10rem; }
+  .cart__backdrop {
+    background-color: #a5a5a5; }
+
+.cart-open {
+  right: 0; }
+  .cart-open .cart-open__toggle-btn {
+    right: 40rem; }

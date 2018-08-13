@@ -1,0 +1,30 @@
+.cart-item {
+    display: block;
+    background-color: #e0e0e0;
+    color: #000;
+    display: flex;
+    margin: 2rem;
+    &__image{
+        width: 10rem;
+        height: 10rem;
+    }
+    &__info{
+        padding: 1rem;
+        
+        &__title{
+            font-weight: 600;
+        }
+
+        &__quantity{
+            display: block;
+        }
+        &__price{
+            display: block;
+            margin-top: 1.8rem;
+        }
+    }
+}
+
+.header {
+    font-weight: 600;
+}
