@@ -2,23 +2,27 @@ import React, { Component } from 'react'
 import CartItem from './Cartitem/CartItem';
 import { connect } from 'react-redux'
 import './Cart.css';
+import classNames from 'classnames';
+import * as actions from '../../store/actions/index';
 
 export class Cart extends Component {
-    state = {
-        isCartActive: false
-    }
-    onCartToggle = () => {
-        const { isCartActive } = this.state
-        this.setState(() => ({ isCartActive: !isCartActive }))
-    }
+    // state = {
+    //     isCartActive: false
+    // }
+    // onCartToggle = () => {
+    //     const { isCartActive } = this.state
+    //     this.setState(() => ({ isCartActive: !isCartActive }))
+    // }
 
     render() {
+        const {isCartActive} = this.props;
+
         let cartList = [];
         if (this.props.cart) {
             cartList = this.props.cart.map(product => {
-                console.log(Math.round(product.price * product.quantity, 2))
                 return <CartItem
                     key={product.id}
+                    title={product.title}
                     image={product.image_url}
                     quantity={product.quantity}
                     price={product.price * product.quantity}
@@ -27,13 +31,12 @@ export class Cart extends Component {
         }
 
         return (
-            <div className="cart">
+            <div className={classNames("cart", {"cart-open": isCartActive})}>
                 <button 
-                    onPointerDown={this.onCartToggle} 
-                    className="cart__toggle-btn">cart
+                    onPointerDown={this.props.onToggleCart} 
+                    className={classNames("cart__toggle-btn", {"cart-open__toggle-btn": isCartActive})}>cart
                 </button>
-                {/* <h1 className="cart__heading">Cart</h1> */}
-                <ul className="cart-list">
+                <ul className="cart__list">
                     {cartList}
                 </ul>
             </div>
@@ -44,8 +47,15 @@ export class Cart extends Component {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart.cart
+        cart: state.cart.cart,
+        isCartActive: state.cart.isCartActive
     }
 }
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = dispatch => {
+    return {
+        onToggleCart: () => dispatch(actions.toggleCart())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
