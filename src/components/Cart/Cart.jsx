@@ -32,6 +32,7 @@ export class Cart extends Component {
 
         return (
             <div className={classNames("cart", {"cart-open": isCartActive})}>
+                
                 <button 
                     onPointerDown={this.props.onToggleCart} 
                     className={classNames("cart__toggle-btn", {"cart-open__toggle-btn": isCartActive})}>cart
@@ -39,8 +40,10 @@ export class Cart extends Component {
                 <ul className="cart__list">
                     {cartList}
                 </ul>
+                <div className="cart__checkout">
+                    <button className="cart__checkout-btn">Checkout</button>
+                </div>
             </div>
-
         )
     }
 }
