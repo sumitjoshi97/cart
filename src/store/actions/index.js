@@ -1,4 +1,8 @@
 export {
     initProducts,
-    addProductToCart
 } from './product';
+
+export {
+    addProductToCart,
+    toggleCart
+} from './cart'
