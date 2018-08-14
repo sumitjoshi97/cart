@@ -30,5 +30,6 @@
         color: #2e2e2e;
         background-color: #fff; }
       .filters__list__item--active {
-        color: #2e2e2e;
-        background-color: #fff; }
+        color: #fff;
+        background-color: #36f;
+        border: 1px solid #36f; }

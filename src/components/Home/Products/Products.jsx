@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions/index';
-import Product from '../../components/Product/Product';
+import * as actions from '../../../store/actions/index';
+import Product from './Product/Product';
 import Filter from '../Filter/Filter';
-import "./Home.css";
+import "./Products.css";
 
 const sizes = [
   'XS', 'S', 'M', 'ML', 'L', 'X', 'XL', 'XXL'
@@ -56,10 +56,6 @@ export class Home extends Component {
 
         <div className="products-list">
           {productsList}
-          {/* {console.log(productsList)} */}
-
-          {/* {console.log(this.state.filters)} */}
-          {/* {console.log(this.props.cart)} */}
         </div>   
       </div>
     )

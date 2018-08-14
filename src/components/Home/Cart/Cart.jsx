@@ -3,16 +3,12 @@ import CartItem from './Cartitem/CartItem';
 import { connect } from 'react-redux'
 import './Cart.css';
 import classNames from 'classnames';
-import * as actions from '../../store/actions/index';
-
+import * as actions from '../../../store/actions/index';
+import {withRouter} from 'react-router-dom'
 export class Cart extends Component {
-    // state = {
-    //     isCartActive: false
-    // }
-    // onCartToggle = () => {
-    //     const { isCartActive } = this.state
-    //     this.setState(() => ({ isCartActive: !isCartActive }))
-    // }
+    handleClick = () => {
+        this.props.history.push('/checkout');
+    }
 
     render() {
         const {isCartActive} = this.props;
@@ -40,8 +36,10 @@ export class Cart extends Component {
                 <ul className="cart__list">
                     {cartList}
                 </ul>
+                {console.log(this.props.totalPrice)}
                 <div className="cart__checkout">
-                    <button className="cart__checkout-btn">Checkout</button>
+                    <h2 className="cart__checkout--price">totalPrice{this.props.totalPrice}</h2>
+                    <button className="cart__checkout--btn" onPointerDown={this.handleClick}>Checkout</button>
                 </div>
             </div>
         )
@@ -51,7 +49,8 @@ export class Cart extends Component {
 const mapStateToProps = state => {
     return {
         cart: state.cart.cart,
-        isCartActive: state.cart.isCartActive
+        isCartActive: state.cart.isCartActive,
+        totalPrice: state.cart.totalPrice
     }
 }
 
@@ -61,4 +60,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Cart))
