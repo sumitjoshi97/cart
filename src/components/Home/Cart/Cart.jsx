@@ -36,9 +36,7 @@ export class Cart extends Component {
                 <ul className="cart__list">
                     {cartList}
                 </ul>
-                {console.log(this.props.totalPrice)}
                 <div className="cart__checkout">
-                    <h2 className="cart__checkout--price">totalPrice{this.props.totalPrice}</h2>
                     <button className="cart__checkout--btn" onPointerDown={this.handleClick}>Checkout</button>
                 </div>
             </div>
