@@ -1,0 +1,21 @@
+.contact-data {
+    margin: 2rem;
+    background-color: #eee;
+    padding: 2rem;
+    
+
+    h2 {
+        text-align: center;
+    }
+
+    &__submit {
+        margin-left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        color: #fff;
+        background-color: #4171ff;
+    }
+} 

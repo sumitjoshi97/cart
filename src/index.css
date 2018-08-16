@@ -12,3 +12,17 @@ body {
   font-size: 1.5rem;
   font-family: 'Open Sans', sans-serif;
 }
+
+/* global classes */
+
+.btn-large {   
+  border: none;
+  padding: 2rem 3rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-large:active, .btn-large:focus {
+  outline: none;
+}

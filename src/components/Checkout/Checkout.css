@@ -1,0 +1,19 @@
+.checkout__summary {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1rem; }
+
+.checkout__price {
+  display: inline-block;
+  background-color: #cac6c6;
+  font-size: 2rem;
+  padding: 2rem;
+  float: right;
+  margin: 2rem; }
+  .checkout__price__header {
+    display: inline-block;
+    font-size: inherit;
+    margin-right: 1rem; }
+  .checkout__price__value {
+    display: inline-block;
+    font-weight: 700; }

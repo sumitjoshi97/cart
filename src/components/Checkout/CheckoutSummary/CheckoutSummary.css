@@ -1,0 +1,39 @@
+.checkout-summary {
+  position: relative; }
+  .checkout-summary__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    background-color: #eee;
+    padding: 1rem; }
+  .checkout-summary__product {
+    display: flex;
+    height: 12rem;
+    background-color: #cac6c6;
+    padding: 1rem;
+    margin: 1rem; }
+    .checkout-summary__product__image {
+      height: 10rem;
+      width: 10rem; }
+    .checkout-summary__product__info {
+      display: flex;
+      line-height: 10rem;
+      padding: 0 2rem;
+      font-weight: 600; }
+      .checkout-summary__product__info__title {
+        font-size: 1.8rem;
+        margin-right: 1rem; }
+  .checkout-summary__price {
+    position: relative;
+    padding: 2rem;
+    background-color: #cac6c6;
+    margin: 0 2rem; }
+  .checkout-summary__btn {
+    display: flex;
+    margin: 2rem; }
+    .checkout-summary__btn--cancel {
+      background-color: #eee;
+      margin-right: auto; }
+    .checkout-summary__btn--continue {
+      background-color: #4171ff;
+      color: #fff; }

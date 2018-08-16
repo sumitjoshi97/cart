@@ -53,19 +53,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #fff;
-      background-color: #36f;
-      border: none;
-      padding: 2rem 3rem;
-      font-size: 1.8rem;
-      text-transform: uppercase;
       -webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
-      cursor: pointer; }
-      .cart__checkout--btn:active, .cart__checkout--btn:focus {
-        outline: none; }
+      color: #fff;
+      background-color: #36f; }
 
 .cart-open {
   right: 0; }
