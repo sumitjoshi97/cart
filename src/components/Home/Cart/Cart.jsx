@@ -5,6 +5,7 @@ import './Cart.css';
 import classNames from 'classnames';
 import * as actions from '../../../store/actions/index';
 import {withRouter} from 'react-router-dom'
+
 export class Cart extends Component {
     handleClick = () => {
         this.props.history.push('/checkout');
@@ -37,7 +38,7 @@ export class Cart extends Component {
                     {cartList}
                 </ul>
                 <div className="cart__checkout">
-                    <button className="cart__checkout--btn" onPointerDown={this.handleClick}>Checkout</button>
+                    <button className="cart__checkout--btn btn-large" onPointerDown={this.handleClick}>Checkout</button>
                 </div>
             </div>
         )

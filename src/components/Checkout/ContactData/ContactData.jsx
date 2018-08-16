@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Input from './Input/Input'
-
+import './ContactData.css'
 export class ContactData extends Component {
   state = {
     orderForm: {
@@ -164,8 +164,9 @@ export class ContactData extends Component {
     )
     return (
       <div className="contact-data">
-        <h4>Enter your contact data</h4>
+        <h2>Enter your contact data</h2>
         {form}
+        <button className="contact-data__submit btn-large">order</button>
       </div>
     )
   }
