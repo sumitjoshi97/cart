@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
-import './App.css';
-import Filter from './containers/Filter/Filter';
-import Cart from './components/Cart/Cart'
-import Home from './containers/Home/Home'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Home from './components/Home/Home'
+import Checkout from './components/Checkout/Checkout'
+import Sidebar from './components/SideBar/Sidebar';
+
 class App extends Component {
   render() {
+    const right = {
+      marginLeft: '32rem'
+    }
     return (
-      <div className="App">
-        {/* <Filter/> */}
-        <Home/>
-        <Cart/>
+      <Router>
+      <div>
+      <Sidebar/>
+        <div style={right}>
+        <Switch>
+          <Route path='/checkout' component={Checkout}/>
+          <Route path='/' component={Home}/>
+        </Switch>
+        </div>
+        
       </div>
+        
+      </Router>
     );
   }
 }
