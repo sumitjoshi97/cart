@@ -1,32 +1,36 @@
 import * as actionTypes from '../actions/actionTypes';
 
+const sizes = [
+  'XS', 'S', 'M', 'ML', 'L', 'X', 'XL', 'XXL'
+]
+
 const initialState = {
+    sizes: sizes,
     filters: []
 }
 
-const sizes = [
-    'XS', 'S', 'M', 'ML', 'L', 'X', 'XL', 'XXL'
-  ]
+const toggleFilter = (state, action) => {
 
-
-const setFilter = (state, action) => {
-    let filters = {...state};
-    const index = filters.indexOf(action.filter);
+    const index = state.filters.indexOf(action.filter);
 
     if (index >= 0) {
-      filters = filters.filter(filter => filter !== action.filter)
+      return {
+        ...state,
+        filters: state.filters.slice(0, index).concat(state.filters.slice(index+1))
+      }
     } else {
-      filters = filters.concat(size)
+      return {
+        ...state,
+        filters: state.filters.concat(action.filter)
+      }
     }
-
-    return {filters: filters}
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-  case actionTypes.SET_FILTER:
-    return setFilter(state, action)
+  case actionTypes.TOGGLE_FILTER:
+    return toggleFilter(state, action)
 
   default:
     return state
