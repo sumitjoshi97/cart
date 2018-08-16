@@ -6,3 +6,7 @@ export {
     addProductToCart,
     toggleCart
 } from './cart'
+
+export {
+    toggleFilter
+} from './filter'

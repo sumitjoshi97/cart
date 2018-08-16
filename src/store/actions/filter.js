@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes';
 
-const setFilter = (filter) => {
+export const toggleFilter = (filter) => {
     return {
-        type: actionTypes.SET_FILTER,
+        type: actionTypes.TOGGLE_FILTER,
         filter
     }
 }
