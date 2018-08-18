@@ -34,6 +34,6 @@ export const purchaseOrder = (orderData, token) => {
 
 export const purchaseInit = () => {
     return {
-        type: action.PURCHASE_INIT
+        type: actionTypes.PURCHASE_INIT
     }
 }
