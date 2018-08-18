@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import Input from './Input/Input'
+import { connect } from 'react-redux'
+import * as actions from '../../../store/actions/index'
+import checkValidity from '../../../utility/checkValidity'
+import Input from '../../UI/Input/Input'
 import './ContactData.css'
+
 export class ContactData extends Component {
   state = {
     orderForm: {
@@ -77,6 +81,7 @@ export class ContactData extends Component {
     formIsValid: false
   }
 
+
   orderHandler = event => {
     event.preventDefault()
 
@@ -91,44 +96,14 @@ export class ContactData extends Component {
       orderData: formData,
       userId: this.props.userId
     }
-    this.props.onOrderCart(order, this.props.token);
-  }
-
-  checkValidity = (value, rules) => {
-    let isValid = true
-    if(!rules) {
-      return true
-    }
-
-    if(rules.required) {
-      isValid = value.trim() !== '' && isValid
-    }
-    if(rules.minLength) {
-      isValid = value.length >= rules.minLength && isValid
-    }
-
-    if(rules.maxLength) {
-      isValid = value.length <= rules.minLength && isValid
-    }
-
-    if(rules.isEmail) {
-      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-      isValid = pattern.test(value) && isValid
-    }
-
-    if(rules.isNumeric) {
-      const pattern = /^\d+$/
-      isValid = pattern.test(value) && isValid
-    }
-    
-    return isValid
+    this.props.onPurchaseOrder(order, this.props.token);
   }
 
   inputChangeHandler = (event, inputIdentifier) => {
     const updatedOrderForm = { ...this.state.orderForm }
     const updatedFormElement = { ...updatedOrderForm[inputIdentifier] }
     updatedFormElement.value = event.target.value
-    updatedFormElement.valid = this.checkValidity(updatedFormElement.value)
+    updatedFormElement.valid = checkValidity(updatedFormElement.value, updatedFormElement.validation)
     updatedFormElement.touched = true
     updatedOrderForm[inputIdentifier] = updatedFormElement
 
@@ -138,8 +113,9 @@ export class ContactData extends Component {
     }
     this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid})
   }
-  render() {
 
+
+  render() {
     const formElementsArray = []
     for (let key in this.state.orderForm) {
       formElementsArray.push({
@@ -147,6 +123,7 @@ export class ContactData extends Component {
         config: this.state.orderForm[key]
       })
     }
+
     let form = (
       <form onSubmit={this.orderHandler}>
         {formElementsArray.map(formElement => (
@@ -160,16 +137,33 @@ export class ContactData extends Component {
             touched={formElement.config.touched}
             changed={(event)=>this.inputChangeHandler(event, formElement.id)} />
         ))}
-      </form> 
+        {console.log(this.state.formIsValid)}
+        <button className="contact-data__submit btn-large" disabled={!this.state.formIsValid}>order</button>
+      </form>
     )
+
     return (
       <div className="contact-data">
         <h2>Enter your contact data</h2>
         {form}
-        <button className="contact-data__submit btn-large">order</button>
       </div>
     )
   }
 }
 
-export default ContactData
+const mapStateToProps = state => {
+  return {
+    cart: state.cart.cart,
+    totalPrice: state.cart.totalPrice,
+    userId: state.auth.userId,
+    token: state.auth.token,
+    loading: state.order.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onPurchaseOrder: (order, token) => dispatch(actions.purchaseOrder(order, token))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ContactData)
