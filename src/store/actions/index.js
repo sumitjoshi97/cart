@@ -1,6 +1,6 @@
 export {
     initProducts,
-} from './product';
+} from './product'
 
 export {
     addProductToCart,
@@ -10,3 +10,13 @@ export {
 export {
     toggleFilter
 } from './filter'
+
+export {
+    auth,
+    logout,
+    setAuthRedirectPath
+} from './auth'
+
+export {
+    purchaseOrder
+} from './order'
