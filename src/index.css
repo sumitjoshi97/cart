@@ -26,3 +26,8 @@ body {
 .btn-large:active, .btn-large:focus {
   outline: none;
 }
+
+.btn-large:disabled {
+  cursor: not-allowed;
+  background-color: #969696;
+}
