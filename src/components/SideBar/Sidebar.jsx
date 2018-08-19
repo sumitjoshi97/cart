@@ -6,6 +6,7 @@ const Sidebar = props => {
   return (
     <div className="sidebar">
         <Navigation/>
+        <div className="sidebar__divider"></div>
         <Filter/>
     </div>
   )
