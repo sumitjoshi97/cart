@@ -18,5 +18,6 @@ export {
 } from './auth'
 
 export {
-    purchaseOrder
+    purchaseOrder,
+    fetchOrders
 } from './order'
