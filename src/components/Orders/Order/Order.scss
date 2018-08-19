@@ -1,0 +1,39 @@
+.order {
+    background-color: #eee;
+    border: 1px solid #cac6c6;
+    border-radius:4px;
+    margin: 2rem 0;
+    margin-right: 2rem;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+
+    &__product-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__product {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #cac6c6;
+        margin: 1rem;
+        padding: 1rem;
+        &__image{
+            height: 5rem;
+            width: 5rem;
+        }
+
+        &__info{
+            margin-left: 1rem;
+            line-height: 5rem;
+        }
+    }
+
+    &__price{
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin: 1rem;
+        margin-top: 0;
+    }
+}

@@ -33,7 +33,6 @@ class Filter extends Component {
         <ul className="filters__list">
           {sizes}
         </ul>
-        {console.log(this.props.filters)}
       </div>
     )
   }

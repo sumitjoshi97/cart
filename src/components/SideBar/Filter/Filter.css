@@ -1,7 +1,7 @@
 .filters {
   position: absolute;
   left: 0;
-  top: 20%;
+  bottom: 4rem;
   margin: 2rem; }
   .filters__heading {
     margin-bottom: 2rem;
