@@ -137,7 +137,6 @@ export class ContactData extends Component {
             touched={formElement.config.touched}
             changed={(event)=>this.inputChangeHandler(event, formElement.id)} />
         ))}
-        {console.log(this.state.formIsValid)}
         <button className="contact-data__submit btn-large" disabled={!this.state.formIsValid}>order</button>
       </form>
     )
