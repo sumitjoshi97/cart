@@ -22,6 +22,12 @@ export const purchaseOrderStart = () => {
     }
 }
 
+export const purchaseInit = () => {
+    return {
+        type: actionTypes.PURCHASE_INIT
+    }
+}
+
 export const purchaseOrder = (orderData, token) => {
     return dispatch => {
         axios.post('/orders.json?auth=' + token, orderData)
@@ -29,12 +35,6 @@ export const purchaseOrder = (orderData, token) => {
                 dispatch(purchaseOrderSuccess(res.data.name, orderData))
             })
             .catch(err => dispatch(purchaseOrderFailed(err)))
-    }
-}
-
-export const purchaseInit = () => {
-    return {
-        type: actionTypes.PURCHASE_INIT
     }
 }
 
@@ -61,7 +61,6 @@ export const fetchOrdersStart = () => {
 export const fetchOrders = (token, userId) => {
     return dispatch => {
         dispatch(fetchOrdersStart())
-        console.log(token)
         const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
         axios.get('/orders.json' + queryParams)
             .then(res => {

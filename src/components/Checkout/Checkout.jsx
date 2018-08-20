@@ -6,6 +6,7 @@ import ContactData from './ContactData/ContactData'
 import './Checkout.css'
 
 export class Checkout extends Component {
+  
   checkoutCancelHandler = () => {
     this.props.history.goBack()
   }
@@ -17,7 +18,7 @@ export class Checkout extends Component {
     let summary = <Redirect to="/"/>
 
     if (this.props.cart) {
-      const purchasedRedirect = this.props.purchased ? <Redirect to="/" /> : null 
+      const purchasedRedirect = this.props.purchased ? <Redirect to="/" /> : null
       
       summary = (
         <div className="checkout">
