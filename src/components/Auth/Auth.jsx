@@ -42,6 +42,12 @@ export class Auth extends Component {
         isSignup: true
     }
 
+    componentDidMount() {
+        if (!this.props.checkout && this.props.authRedirectPath !=='/') {
+            this.props.setAuthRedirectPath()
+        }
+    }
+
     inputChangeHandler = (event, controlName) => {
         const upadatedControls = {
             ...this.state.controls,
@@ -121,7 +127,8 @@ const mapStateToProps = state => {
         loading: state.auth.loading,
         error: state.auth.error,
         isAuth: state.auth.token !== null,
-        authRedirectPath: state.auth.authRedirectPath
+        authRedirectPath: state.auth.authRedirectPath,
+        checkout: state.cart.checkout
     }
 }
 
