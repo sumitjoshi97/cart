@@ -3,7 +3,13 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     cart: [],
     totalPrice: 0,
-    isCartActive: false
+    isCartActive: false,
+    checkout: false
+}
+
+// initialize cart
+const cartInit = (state, action) => {
+    return initialState
 }
 
 // add product to cart
@@ -45,14 +51,23 @@ const toggleCart = (state, action) => {
     }
 }
 
+const cartCheckout = (state, action) => {
+    return {...state,
+        checkout: true
+    }
+}
 // reducer
 export default (state = initialState, action) => {
     switch (action.type) {
 
+        case actionTypes.CART_INIT: 
+            return cartInit(state, action)
         case actionTypes.ADD_PRODUCT_TO_CART:
             return addProductToCart(state, action)
         case actionTypes.TOGGLE_CART:
             return toggleCart(state, action)
+        case actionTypes.CART_CHECKOUT:
+            return cartCheckout(state, action)
 
         default:
             return state

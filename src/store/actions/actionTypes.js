@@ -1,8 +1,10 @@
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const SET_PRODUCTS_FAIL = 'SET_PRODUCTS_FAIL';
 
+export const CART_INIT = 'CART_INIT'
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 export const TOGGLE_CART = 'TOGGLE_CART'
+export const CART_CHECKOUT = 'CART_CHECKOUT'
 
 export const TOGGLE_FILTER = 'TOGGLE_FILTER'
 

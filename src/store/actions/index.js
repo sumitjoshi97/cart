@@ -3,8 +3,10 @@ export {
 } from './product'
 
 export {
+    cartInit,
     addProductToCart,
-    toggleCart
+    toggleCart,
+    cartCheckout
 } from './cart'
 
 export {
@@ -18,6 +20,7 @@ export {
 } from './auth'
 
 export {
+    purchaseInit,
     purchaseOrder,
     fetchOrders
 } from './order'
