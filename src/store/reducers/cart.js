@@ -56,7 +56,8 @@ const cartCheckout = (state, action) => {
         checkout: true
     }
 }
-// reducer
+
+// ---------------- CART reducer ------------------------
 export default (state = initialState, action) => {
     switch (action.type) {
 

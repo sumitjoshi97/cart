@@ -10,7 +10,6 @@ const initialState = {
 }
 
 const toggleFilter = (state, action) => {
-
     const index = state.filters.indexOf(action.filter);
 
     if (index >= 0) {

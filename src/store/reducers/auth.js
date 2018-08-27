@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 
+// initialState
 const initialState = {
     token: null,
     userId: null,
@@ -54,6 +55,7 @@ const setAuthRedirectPath = (state, action) => {
     }
 }
 
+// ------------AUTH REDUCER--------------------------
 export default (state = initialState, action) => {
     switch(action.type) {
         
