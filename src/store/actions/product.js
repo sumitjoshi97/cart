@@ -1,6 +1,11 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
 
+export const setProductsStart = () => {
+    return {
+        type: actionTypes.SET_PRODUCTS_START
+    }
+}
 
 export const setProducts = (data) => {
     return {
@@ -17,6 +22,7 @@ export const setProductsFail = () => {
 
 export const initProducts = () => {
     return dispatch => {
+        dispatch(setProductsStart())
         axios
             .get('/products.json')
             .then(res => {
@@ -24,7 +30,7 @@ export const initProducts = () => {
                 dispatch(setProducts(products))
             })
             .catch(err => {
-                dispatch(setProductsFail(err))
+                dispatch(setProductsFail())
             })
     }
 }

@@ -1,4 +1,5 @@
 export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const SET_PRODUCTS_START = 'SET_PRODUCTS_START';
 export const SET_PRODUCTS_FAIL = 'SET_PRODUCTS_FAIL';
 
 export const CART_INIT = 'CART_INIT'
