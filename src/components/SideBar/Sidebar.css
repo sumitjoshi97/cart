@@ -6,7 +6,10 @@
   width: 30rem;
   background-color: #2e2e2e;
   z-index: 4000; }
-  .sidebar__divider {
+  @media only screen and (max-width: 600px) {
+    .sidebar {
+      display: none; } }
+  .sidebar .sidebar__divider {
     position: relative;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -14,3 +17,32 @@
     z-index: 500;
     width: 80%;
     margin: 0 auto; }
+  .sidebar__toggle {
+    width: 40rem;
+    display: none;
+    left: -40rem;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s; }
+    @media only screen and (max-width: 600px) {
+      .sidebar__toggle {
+        display: block; } }
+    .sidebar__toggle-open {
+      left: 0rem; }
+    .sidebar__toggle__btn {
+      position: absolute;
+      display: inline-block;
+      left: 40rem;
+      padding: 1.5rem;
+      font-size: 3rem;
+      background-color: #2e2e2e;
+      color: #fff;
+      border: none;
+      cursor: pointer; }
+      .sidebar__toggle__btn:hover {
+        background-color: #eee;
+        color: #000; }
+      .sidebar__toggle__btn:focus {
+        outline: none; }
