@@ -1,0 +1,49 @@
+@import './sass/mixin.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+//font size set 
+html {
+    font-size: 62.5%; //1rem = 10px 
+    @include respond(bigDesk) {
+        font-size: 75%; //1rem= 12px
+    }
+    @include respond(tabLand) {
+        font-size: 55.25%; // 1rem = 9px
+    }
+    @include respond(tabPort) {
+        font-size: 42.5%; //1rem=8px
+    }
+}
+
+body {
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+
+    ::selection {
+        user-select: none;
+    }
+}
+
+/* global classes */
+.btn-large {
+    border: none;
+    padding: 2rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:focus, &:active {
+        outline: none;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #969696;
+    }
+}
+
