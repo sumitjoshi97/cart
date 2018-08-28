@@ -6,7 +6,12 @@ import * as actions from '../../../../store/actions/index';
 const Product = props => {
   return (
     <div className="product">
-      <img className="product__image" src={props.product.image_url} alt="product"/>
+      <img 
+        className="product__image" 
+        src={props.product.image_url}
+        alt="product"
+        onPointerDown={()=>props.clicked(props.product.image_url, props.product.title)} 
+        />
       <div className="product__info">
         <h3 className="product__info__header">{props.product.title}</h3>
         <p className="product__info__price">{`$${props.product.price}  USD`}</p>

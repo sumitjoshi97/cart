@@ -1,7 +1,10 @@
-.home {
+.products {
     position: relative;
 }
 
-.products-list {
-    padding: 2rem 0;
+.products__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
 }
