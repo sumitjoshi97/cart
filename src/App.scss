@@ -1,0 +1,10 @@
+@import './sass/mixin.scss';
+
+.app {
+    position: relative;
+    margin-left: 30rem;
+
+    @include respond(phone) {
+        margin-left: 0rem;
+    }
+}
