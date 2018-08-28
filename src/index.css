@@ -1,33 +1,35 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
+  @media only screen and (min-width: 1800px) {
+    html {
+      font-size: 75%; } }
+  @media only screen and (max-width: 1200px) {
+    html {
+      font-size: 55.25%; } }
+  @media only screen and (max-width: 900px) {
+    html {
+      font-size: 42.5%; } }
 
 body {
   font-size: 1.5rem;
-  font-family: 'Open Sans', sans-serif;
-}
+  font-family: 'Open Sans', sans-serif; }
+  body ::selection {
+    user-select: none; }
 
 /* global classes */
-
-.btn-large {   
+.btn-large {
   border: none;
   padding: 2rem 3rem;
   font-size: 1.8rem;
   text-transform: uppercase;
-  cursor: pointer;
-}
-
-.btn-large:active, .btn-large:focus {
-  outline: none;
-}
-
-.btn-large:disabled {
-  cursor: not-allowed;
-  background-color: #969696;
-}
+  cursor: pointer; }
+  .btn-large:focus, .btn-large:active {
+    outline: none; }
+  .btn-large:disabled {
+    cursor: not-allowed;
+    background-color: #969696; }
