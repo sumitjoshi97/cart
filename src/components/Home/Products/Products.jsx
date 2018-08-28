@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import * as actions from '../../../store/actions/index';
 import Product from './Product/Product';
 import Spinner from '../../UI/Spinner/Spinner'
+import withErrorHandler from '../../hoc/withErrorHandler'
+import axios from '../../../axios-orders'
 import "./Products.css";
 
-export class Home extends Component {
+export class Products extends Component {
   componentDidMount() {
     this.props.onInitProducts()
   }
@@ -55,4 +57,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Products, axios))
