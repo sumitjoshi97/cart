@@ -1,4 +1,5 @@
 @import './sass/mixin.scss';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600);
 
 * {
     padding: 0;
@@ -23,7 +24,6 @@ html {
 body {
     font-size: 1.5rem;
     font-family: 'Open Sans', sans-serif;
-
     ::selection {
         user-select: none;
     }
@@ -46,4 +46,3 @@ body {
         background-color: #969696;
     }
 }
-
