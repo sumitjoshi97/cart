@@ -1,28 +1,66 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import Sidebar from './components/SideBar/Sidebar'
 import Home from './components/Home/Home'
-import Checkout from './components/Checkout/Checkout'
-import Sidebar from './components/SideBar/Sidebar';
-import Auth from './components/Auth/Auth'
 import Logout from './components/Auth/Logout/Logout'
-import Orders from './components/Orders/Orders'
+import asyncComponent from './components/hoc/asyncComponent/AsyncComponent'
+import * as actions from './store/actions/index'
 import './App.css'
-const App = () => (
-  <Router>
-    <div className="app">
-      <Sidebar/>
-      <div>
+
+// code splitting - loading components on demand
+const Checkout = asyncComponent(() => import('./components/Checkout/Checkout'))
+const Auth = asyncComponent(() => import('./components/Auth/Auth'))
+const Orders = asyncComponent(() => import('./components/Orders/Orders'))
+
+// app component
+export class App extends Component {
+  componentDidMount() {
+    this.props.checkAuth()
+  }
+  render() {
+    let routes = (
+      <Switch>
+        <Route path='/auth' component={Auth} />
+        <Route path='/' component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    )
+
+    if (this.props.isAuth) {
+      routes = (
         <Switch>
-          <Route path='/auth' component={Auth}/>
-          <Route path='/logout' component={Logout}/>
-          <Route path='/orders' component={Orders}/>
-          <Route path='/checkout' component={Checkout}/>
-          <Route path='/' component={Home}/>
+          <Route path='/auth' component={Auth} />
+          <Route path='/logout' component={Logout} />
+          <Route path='/orders' component={Orders} />
+          <Route path='/checkout' component={Checkout} />
+          <Route path='/' component={Home} />
+          <Redirect to="/" />
         </Switch>
-      </div>
-    </div>
+      )
+    }
+    return (
+      <Router>
+        <div className="app">
+          <Sidebar />
+          <div>
+            {routes}
+          </div>
+        </div>
+      </Router>
+    )
+  }
+}
 
-  </Router>
-)
+const mapStateToProps = state => {
+  return {
+    isAuth: state.auth.token !== null
+  }
+}
 
-export default App;
+const mapDispatchToProp = dispatch => {
+  return {
+    checkAuth: () => dispatch(actions.authCheckState())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProp)(App)
