@@ -10,7 +10,7 @@ const Product = props => {
         className="product__image" 
         src={props.product.image_url}
         alt="product"
-        onPointerDown={()=>props.clicked(props.product.image_url, props.product.title)} 
+        onPointerDown={()=>props.clicked(props.product.image_url, props.product.title)}
         />
       <div className="product__info">
         <h3 className="product__info__header">{props.product.title}</h3>
