@@ -5,6 +5,7 @@ export {
 export {
     cartInit,
     addProductToCart,
+    removeProductFromCart,
     toggleCart,
     cartCheckout
 } from './cart'
