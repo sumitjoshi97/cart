@@ -17,7 +17,3 @@ export const removeProductFromCart = product => ({
   type: actionTypes.REMOVE_PRODUCT_FROM_CART,
   product
 })
-
-export const toggleCart = () => ({
-  type: actionTypes.TOGGLE_CART
-})
