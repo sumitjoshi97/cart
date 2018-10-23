@@ -1,3 +1,18 @@
+import React, { PureComponent } from 'react'
+import './Product.css'
+import { connect } from 'react-redux'
+import * as actions from '../../../../store/actions/index'
+
+//product component in products list
+class Product extends PureComponent {
+  state = {
+    quantity:
+      0 ||
+      (this.props.cart.find(p => p.id === this.props.product.id)
+        ? this.props.cart.find(p => p.id === this.props.product.id).quantity
+        : false)
+  }
+
   // method to add product to cart
   addQuantity = () => {
     this.setState(prevState => ({
@@ -46,32 +61,47 @@
     )
   }
 
-const Product = props => {
-  return (
-    <div className="product">
-      <img 
-        className="product__image" 
-        src={props.product.image_url}
-        alt="product"
-        onPointerDown={()=>props.clicked(props.product.image_url, props.product.title)}
+  render() {
+    return (
+      <div className="product">
+        <img
+          className="product__image"
+          src={this.props.product.image_url}
+          alt="product"
+          onPointerDown={() =>
+            this.props.clicked(
+              this.props.product.image_url,
+              this.props.product.title
+            )
+          }
         />
-      <div className="product__info">
-        <h3 className="product__info__header">{props.product.title}</h3>
-        <p className="product__info__price">{`$${props.product.price}  USD`}</p>
-        <p className="product__info__para">{props.product.style}</p>
+        <div className="product__info">
+          <h3 className="product__info__header">{this.props.product.title}</h3>
+          <p className="product__info__price">{`$${
+            this.props.product.price
+          }  USD`}</p>
+          <p className="product__info__para">{this.props.product.style}</p>
+        </div>
+
+        {this.renderButtons()}
       </div>
-
-      <button
-        className="product__add"
-        onPointerDown={() => props.onAddProductToCart(props.product)}>Add to Cart</button>
-    </div>
-  )
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddProductToCart: (product) => dispatch(actions.addProductToCart(product))
+    )
   }
 }
 
-export default connect(null, mapDispatchToProps)(Product);
+const mapStateToProps = state => ({
+  cart: state.cart.cart
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddProductToCart: product => dispatch(actions.addProductToCart(product)),
+    onRemoveProductFromCart: product =>
+      dispatch(actions.removeProductFromCart(product))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Product)
