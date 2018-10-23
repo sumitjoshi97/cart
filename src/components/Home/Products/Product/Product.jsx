@@ -1,7 +1,50 @@
-import React from 'react'
-import './Product.css';
-import {connect} from 'react-redux'
-import * as actions from '../../../../store/actions/index';
+  // method to add product to cart
+  addQuantity = () => {
+    this.setState(prevState => ({
+      quantity: prevState.quantity + 1
+    }))
+    this.props.onAddProductToCart(this.props.product)
+  }
+
+  // mthod to 1. subtract and 2. remove product -- `if quantity = 0` -- from cart
+  subtractQuantity = () => {
+    this.setState(prevState => ({
+      quantity: prevState.quantity - 1
+    }))
+    this.props.onRemoveProductFromCart(this.props.product)
+  }
+
+  //buttons render for product 
+  renderButtons = () => {
+    const { quantity } = this.state
+    // return buttons based  on product quantity
+    return quantity > 0 ? (
+      // if product quantity is > 0 it renders `add` and `subtract` button
+      <div className="product__cta">
+        <button
+          onPointerDown={this.subtractQuantity}
+          className="product__cta__subtract cta-btn"
+        >
+          -
+        </button>
+
+        <div className="product__cta__quantity">{quantity}</div>
+
+        <button
+          onPointerDown={this.addQuantity}
+          className="product__cta__add cta-btn"
+        >
+          +
+        </button>
+      </div>
+    ) : (
+      // if quantity = 0 it renders `add To Cart` button 
+      <button className="product__add" onPointerDown={this.addQuantity}>
+        {' '}
+        Add to Cart
+      </button>
+    )
+  }
 
 const Product = props => {
   return (
