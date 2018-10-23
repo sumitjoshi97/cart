@@ -1,46 +1,80 @@
 .product {
-    display: inline-block;
-    position: relative;
-    height: 42rem;
-    width: 25rem;
-    padding: 2rem;
-    margin: 2rem;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  height: 42rem;
+  width: 25rem;
+  padding: 2rem;
+  margin: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 
-    &__image {
-        position: absolute;
-        left: 50%;
-        transform: translateX((-50%));
-        -webkit-transform: translateX((-50%));
-        -moz-transform: translateX((-50%));
-        -ms-transform: translateX((-50%));
-        -o-transform: translateX((-50%));
-        height: 24rem;
-        width: 20rem;
+  &__image {
+    position: absolute;
+    left: 50%;
+    transform: translateX((-50%));
+    -webkit-transform: translateX((-50%));
+    -moz-transform: translateX((-50%));
+    -ms-transform: translateX((-50%));
+    -o-transform: translateX((-50%));
+    height: 24rem;
+    width: 20rem;
+  }
+
+  &__info {
+    position: absolute;
+    top: 26rem;
+    padding-top: 1rem;
+
+    &__price {
+      font-size: 1.4rem;
     }
+  }
+  &__add {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #2e2e2e;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+  }
 
-    &__info {
-        position: absolute;
-        top: 26rem;
-        padding-top: 1rem;
+  &__cta {
+    position: absolute;
+    width: 11rem;
+    bottom: 1rem;
+    right: 1rem;
 
-        &__price {
-            font-size: 1.4rem;
-        }
-    }
     &__add {
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
-        background-color: #2e2e2e;
-        color: #fff;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
+      right: 0;
     }
+    &__quantity {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 2rem;
+      font-weight: 700;
+    }
+    &__subtract {
+      left: 0;
+    }
+  }
+}
+
+// button component 
+.cta-btn {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  bottom: 0;
+  background-color: #2e2e2e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }

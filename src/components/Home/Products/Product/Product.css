@@ -36,3 +36,29 @@
     border: none;
     padding: 1rem;
     cursor: pointer; }
+  .product__cta {
+    position: absolute;
+    width: 11rem;
+    bottom: 1rem;
+    right: 1rem; }
+    .product__cta__add {
+      right: 0; }
+    .product__cta__quantity {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 2rem;
+      font-weight: 700; }
+    .product__cta__subtract {
+      left: 0; }
+
+.cta-btn {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  bottom: 0;
+  background-color: #2e2e2e;
+  color: #fff;
+  border: none;
+  cursor: pointer; }
